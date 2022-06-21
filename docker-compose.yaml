@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  postgres-nest:
+    container_name: postgres-nest
+    hostname: postgres-nest
+    image: postgres:9.6.2
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: task-management
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 5432:5432
+
+  course-pgadmin:
+    container_name: course-pgadmin
+    hostname: course-pgadmin
+    image: dpage/pgadmin4:6.8
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: course@course.co
+      PGADMIN_DEFAULT_PASSWORD: course
+    ports:
+      - 8082:80
+      - 8083:443
